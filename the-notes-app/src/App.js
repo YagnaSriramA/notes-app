@@ -9,7 +9,9 @@ import "react-mde/lib/styles/css/react-mde-all.css"
 
 
 export default function App() {
-    const [notes, setNotes] = React.useState(JSON.parse(localStorage.getItem("notes"))|| [])
+    const [notes, setNotes] = React.useState(
+        ()=> JSON.parse(localStorage.getItem("notes"))|| []
+        )
     const [currentNoteId, setCurrentNoteId] = React.useState(
         (notes[0] && notes[0].id) || ""
     )
